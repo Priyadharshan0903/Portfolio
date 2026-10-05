@@ -1,0 +1,43 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 760px);
+  gap: 40px;
+}
+.h2 {
+  max-width: 20ch;
+}
+.body {
+  margin: 0;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+.facts {
+  margin: 0;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+}
+.fact {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.fact dt {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--dim);
+}
+.fact dd {
+  margin: 0;
+  text-align: right;
+}
+.fact .loves {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--ink);
+}

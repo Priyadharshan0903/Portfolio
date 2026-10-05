@@ -1,0 +1,112 @@
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin: 24px 0 40px;
+}
+.hint {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--dim);
+}
+
+.net {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 700px;
+  border: 1px solid var(--line);
+  background: color-mix(in oklab, var(--bg) 80%, transparent);
+}
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.svg line {
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  transition: opacity 0.3s;
+}
+.node,
+.hub {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  transition: opacity 0.3s, background-color 0.3s;
+}
+.node {
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 7px 12px;
+  color: var(--c);
+  border: 1px solid color-mix(in oklab, var(--c) 35%, transparent);
+  background: var(--bg);
+}
+.node:hover {
+  background-color: var(--glow);
+}
+.hub {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--c);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  z-index: 2;
+}
+.hubPrimary {
+  background: var(--accent);
+  color: var(--on);
+}
+
+.groups {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+.group {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+.groupName {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+}
+.items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.items li {
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+}
+
+/* On wide screens the graph is shown instead; keep the lists for screen readers. */
+@media (min-width: 821px) {
+  .groups {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

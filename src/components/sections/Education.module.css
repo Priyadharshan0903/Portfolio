@@ -1,0 +1,48 @@
+.eyebrow {
+  margin-bottom: 40px;
+}
+.card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 32px;
+  align-items: end;
+  padding: clamp(28px, 4vw, 48px) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.years {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+}
+.degree {
+  margin: 16px 0 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(34px, 3.8vw, 56px);
+  line-height: 1;
+}
+.school {
+  margin-top: 12px;
+  font-size: 17px;
+  color: var(--muted);
+}
+.score {
+  justify-self: end;
+  text-align: right;
+}
+.cgpa {
+  font-family: var(--serif);
+  font-size: clamp(72px, 9vw, 140px);
+  line-height: 0.85;
+}
+.outOf {
+  font-size: 0.3em;
+  color: var(--dim);
+}
+.label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+}

@@ -1,0 +1,59 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px var(--gutter);
+  background: color-mix(in oklab, var(--bg) 78%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.brand,
+.brand:hover {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--fg);
+  white-space: nowrap;
+}
+.right {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.4vw, 32px);
+}
+.nav {
+  display: flex;
+  gap: clamp(14px, 2.2vw, 30px);
+  font-size: 14px;
+}
+.nav a {
+  color: var(--muted);
+}
+.nav a:hover {
+  color: var(--fg);
+}
+.theme {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 12px;
+  cursor: pointer;
+}
+.theme:hover {
+  border-color: var(--ink);
+}
+.square {
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+}

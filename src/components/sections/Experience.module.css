@@ -1,0 +1,119 @@
+.grid {
+  --tl-pad: clamp(32px, 4vw, 52px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 48px clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+.head {
+  position: sticky;
+  top: 120px;
+}
+.h2 {
+  margin-top: 24px;
+}
+.intro {
+  margin: 20px 0 0;
+  max-width: 34ch;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.timeline {
+  position: relative;
+  padding-left: var(--tl-pad);
+}
+.track {
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+.fill {
+  background: var(--accent);
+  transform-origin: 50% 0;
+}
+.job {
+  position: relative;
+  padding-bottom: 64px;
+}
+.job:last-child {
+  padding-bottom: 0;
+}
+.dot {
+  position: absolute;
+  left: calc(-1 * var(--tl-pad));
+  top: 6px;
+  width: 11px;
+  height: 11px;
+  box-sizing: border-box;
+  border: 1px solid var(--dim);
+  background: var(--bg);
+  transition: background-color 0.4s, border-color 0.4s;
+}
+.dot[data-on] {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.when {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+  letter-spacing: 0.06em;
+}
+.company {
+  margin: 12px 0 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(34px, 3.4vw, 48px);
+  line-height: 1;
+}
+.title {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 16px;
+}
+.roles {
+  margin-top: 26px;
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+.role {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.roleHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 16px;
+  align-items: baseline;
+}
+.roleTitle {
+  font-weight: 600;
+  font-size: 17px;
+}
+.roleDates {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--dim);
+}
+.summary {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.roleBullets {
+  margin-top: 10px;
+  gap: 8px;
+  line-height: 1.55;
+}
+.jobBullets {
+  margin-top: 22px;
+  gap: 10px;
+  line-height: 1.6;
+}

@@ -1,0 +1,122 @@
+:root {
+  --bg: #0f0f0d;
+  --fg: #ecebe6;
+  --muted: #a3a29b;
+  --dim: #706f69;
+  --line: rgba(236, 235, 230, 0.1);
+  --card: rgba(236, 235, 230, 0.025);
+  --accent: #7fb8ff;
+  --ink: #7fb8ff;
+  --on: #0f0f0d;
+  --glow: rgba(127, 184, 255, 0.14);
+  --sans: var(--font-geist), system-ui, sans-serif;
+  --serif: var(--font-instrument-serif), Georgia, serif;
+  --mono: var(--font-geist-mono), ui-monospace, monospace;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --gutter: clamp(20px, 4vw, 56px);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #f1f0ea;
+  --fg: #141412;
+  --muted: #55544e;
+  --dim: #8a8982;
+  --line: rgba(20, 20, 18, 0.12);
+  --card: rgba(255, 255, 255, 0.5);
+  --ink: #1d55c4;
+  --glow: rgba(36, 98, 214, 0.11);
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on);
+}
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---- custom cursor (enabled by Interactions on fine pointers) */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+[data-cursor] {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+[data-cursor="dot"] {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+}
+[data-cursor="ring"] {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  transition: opacity 0.3s, width 0.3s, height 0.3s, background-color 0.3s;
+}
+[data-cursor="ring"][data-hover] {
+  width: 56px;
+  height: 56px;
+  background: var(--glow);
+}
+
+/* ---- entrance motion: html.motion is set before paint unless reduced motion is preferred */
+html.motion [data-hero],
+html.motion [data-reveal] {
+  transition: opacity 1s var(--ease) var(--d, 0ms), transform 1s var(--ease) var(--d, 0ms);
+}
+html.motion [data-hero]:not([data-shown]) {
+  opacity: 0;
+  transform: translateY(22px);
+}
+html.motion [data-reveal]:not([data-shown]) {
+  opacity: 0;
+  transform: translateY(28px);
+}
+[data-reveal="1"] { --d: 90ms; }
+[data-reveal="2"] { --d: 180ms; }
+[data-reveal="3"] { --d: 270ms; }
+[data-hero="0"] { --d: 150ms; }
+[data-hero="1"] { --d: 280ms; }
+[data-hero="2"] { --d: 410ms; }
+[data-hero="3"] { --d: 540ms; }
+[data-hero="4"] { --d: 670ms; }
+[data-hero="5"] { --d: 800ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,115 @@
+/* Shared primitives used across sections. */
+
+.section {
+  padding: clamp(110px, 18vh, 200px) var(--gutter);
+}
+.sectionTight {
+  padding: clamp(90px, 14vh, 160px) var(--gutter);
+}
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.num {
+  color: var(--ink);
+}
+
+.h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(40px, 5.4vw, 84px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.accent {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.chip {
+  font-family: var(--mono);
+  font-size: 0.86em;
+  color: var(--fg);
+  background: var(--glow);
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+.em {
+  color: var(--fg);
+}
+
+.bullets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  color: var(--muted);
+  font-size: 16px;
+}
+.bullets li {
+  display: flex;
+  gap: 12px;
+}
+.bullets li::before {
+  content: "+";
+  color: var(--ink);
+}
+
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  font-size: 15px;
+}
+.btnPrimary,
+.btnPrimary:hover {
+  background: var(--accent);
+  color: var(--on);
+  font-weight: 600;
+}
+.btnGhost,
+.btnGhost:hover {
+  border: 1px solid var(--line);
+  color: var(--fg);
+  background: color-mix(in oklab, var(--bg) 60%, transparent);
+}
+.underline,
+.underline:hover {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: var(--ink);
+}
+
+/* list row that nudges right on hover */
+.row {
+  color: var(--fg);
+  border-bottom: 1px solid var(--line);
+  transition: padding-left 0.4s;
+}
+.row:hover {
+  color: var(--fg);
+  padding-left: 12px;
+}
+
+/* Hidden below the design's 820px breakpoint */
+@media (max-width: 820px) {
+  .wideOnly {
+    display: none !important;
+  }
+}
