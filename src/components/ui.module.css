@@ -78,6 +78,7 @@
 }
 .btnPrimary,
 .btnPrimary:hover {
+  border: 1px solid var(--accent);
   background: var(--accent);
   color: var(--on);
   font-weight: 600;

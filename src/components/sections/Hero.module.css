@@ -58,6 +58,13 @@
   padding: 16px 24px;
   font-size: 15px;
 }
+@media (max-width: 600px) {
+  .ctas > a {
+    flex: 1 1 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
 .location {
   align-self: end;
   justify-self: end;

@@ -256,7 +256,7 @@ export default function Interactions() {
       if (W < 820) {
         k.fx = 0;
         k.z *= 1.25;
-        k.op *= name === "hero" || name === "contact" ? 0.5 : 0;
+        k.op *= name === "contact" ? 0.5 : 0;
       }
       return k;
     };
