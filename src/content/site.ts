@@ -100,7 +100,7 @@ export const experience: Job[] = [
 
 export const projects = [
   { name: "Corral", tag: "macOS", repo: "Corral-Releases", desc: "macOS clipboard manager that keeps your copy history for one-click reuse." },
-  { name: "Foglio", tag: "local-first", repo: "Foglio", desc: "Local-first, all-in-one task and meeting manager." },
+  { name: "Foglio", tag: "local-first", repo: "Foglio", liveUrl: "https://priyadharshan0903.github.io/Foglio/", desc: "Local-first, all-in-one task and meeting manager." },
   { name: "Rewind", tag: "API client", repo: "Rewind", desc: "A local-first Postman alternative that keeps a full history of every API call you make." },
   { name: "Git Switcher", tag: "CLI", repo: "Git-Switcher", desc: "CLI to switch between Git identities instantly." },
   { name: "Claude Account Switcher", tag: "CLI", repo: "Claude-Switcher", desc: "CLI for seamless switching between Claude accounts." },

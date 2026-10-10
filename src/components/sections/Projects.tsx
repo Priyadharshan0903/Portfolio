@@ -17,7 +17,7 @@ export default function Projects() {
         <div className={s.grid}>
           {projects.map((p, i) => (
             <div key={p.repo} data-reveal={i % 3} className={s.cell}>
-              <a href={`${site.github}/${p.repo}`} target="_blank" rel="noopener" data-tilt className={s.card}>
+              <a href={p.liveUrl ?? `${site.github}/${p.repo}`} target="_blank" rel="noopener" data-tilt className={s.card}>
                 <div className={s.meta}>
                   <span>P/{String(i + 1).padStart(2, "0")}</span>
                   <span className={ui.num}>{p.tag}</span>
@@ -27,7 +27,7 @@ export default function Projects() {
                   <p className={s.desc}>{p.desc}</p>
                 </div>
                 <div className={s.foot}>
-                  <span>{p.repo}</span>
+                  <span>{p.liveUrl ? `Download ${p.name}` : p.repo}</span>
                   <span className={ui.num} aria-hidden>
                     ↗
                   </span>
