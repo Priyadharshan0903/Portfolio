@@ -9,11 +9,13 @@ import OpenSource from "@/components/sections/OpenSource";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 import Writing from "@/components/sections/Writing";
+import { profileStructuredData, serializeStructuredData } from "@/lib/metadata";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <div className={styles.root}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeStructuredData(profileStructuredData()) }} />
       <canvas data-gl className={styles.globe} aria-hidden />
       <div data-progress className={styles.progress} />
       <div data-cursor="dot" />

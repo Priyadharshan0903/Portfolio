@@ -1,0 +1,6 @@
+.terminal { background: color-mix(in oklab, var(--fg) 7%, var(--bg)); min-width: 0; }
+.bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 16px 24px 0; font-size: 14px; color: var(--muted); }
+.bar button { min-height: 44px; padding: 8px 12px; border: 0; border-radius: 0; font: inherit; color: var(--fg); background: color-mix(in oklab, var(--fg) 8%, var(--bg)); cursor: pointer; }
+.bar button:hover { color: var(--ink); }
+.terminal pre { margin: 0; padding: 36px 24px 48px; overflow-x: auto; font-size: clamp(14px, 1.7vw, 21px); line-height: 1.8; }
+.terminal code { font-family: var(--mono); }
