@@ -5,6 +5,8 @@ import ProjectCommand from "@/components/ProjectCommand";
 import ProjectGallery from "@/components/ProjectGallery";
 import ThemeToggle from "@/components/ThemeToggle";
 import { projects, site } from "@/content/site";
+import { publicUrl } from "@/lib/discovery";
+import { pageMetadata, projectStructuredData, serializeStructuredData } from "@/lib/metadata";
 import s from "./page.module.css";
 
 export const dynamicParams = false;
@@ -17,7 +19,12 @@ export async function generateMetadata({ params }: PageProps<"/projects/[slug]">
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) return {};
-  return { title: `${project.name} · ${site.name}`, description: project.desc };
+  return pageMetadata(
+    `${project.name} · ${site.name}`,
+    project.desc,
+    `projects/${project.slug}/`,
+    project.images.slice(0, 1).map(({ src, alt }) => ({ url: publicUrl(`projects/${src}`), alt })),
+  );
 }
 
 export default async function ProjectPage({ params }: PageProps<"/projects/[slug]">) {
@@ -29,6 +36,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
 
   return (
     <div className={s.page}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeStructuredData(projectStructuredData(project)) }} />
       <a href="#project-content" className={s.skip}>Skip to project</a>
       <header className={s.header}>
         <Link className={s.brand} href="/">Priyadharshan.</Link>

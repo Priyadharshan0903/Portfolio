@@ -3,6 +3,8 @@
 
 export const site = {
   name: "Priyadharshan Senthil",
+  url: "https://priyadharshan0903.github.io/Portfolio/",
+  description: "Platform Engineer at Workday. I build reliable platforms, integrations and developer tools, and own them end to end.",
   email: "priyadharshansenthil@gmail.com",
   github: "https://github.com/Priyadharshan0903",
   journal: "https://priyadharshan0903.github.io/Journal/",

@@ -34,6 +34,38 @@ images appear in the tools list. Keep captions clear when an image shows demo co
 Project routes and metadata are generated from this array at build time. Internal links use Next.js `Link`,
 and public images use the shared `asset()` helper, so both work with the GitHub Pages base path.
 
+## Agent access and discovery
+
+Next.js generates these static files from `src/content/site.ts` on every build:
+
+- `llms.txt` — a short portfolio guide with links to experience, projects, writing, and contact.
+- `profile.json` — structured experience, skills, projects, contributions, education, and contact data.
+- `sitemap.xml` — the homepage and every project page, using their canonical public URLs.
+
+On the current deployment these live under `https://priyadharshan0903.github.io/Portfolio/`.
+`site.url` is the published site URL, including its trailing slash and any project path. Update it if
+you move hosting or add a custom domain, and keep it consistent with the deploy base path. Local builds
+also use this production URL for canonical URLs, sharing metadata, and links inside the discovery files.
+
+The HTML links to the agent guide and sitemap. The homepage also advertises the JSON profile, includes
+ProfilePage/Person structured data, and project pages include software structured data and individual
+canonical and social sharing metadata. All descriptions come from the visible portfolio content;
+release-specific limitations remain in each project's setup details and repository.
+
+An agent can fetch the JSON and filter it locally. For example, in a browser console:
+
+```js
+const profile = await fetch("https://priyadharshan0903.github.io/Portfolio/profile.json").then(r => r.json());
+profile.projects
+  .filter(project => project.technologies.includes("Go"))
+  .map(({ name, description, repository }) => ({ name, description, repository }));
+```
+
+This is a static snapshot, not a server-side query API. `llms.txt` is an optional convention, and these
+files do not guarantee indexing or traffic. After deployment, submit the full `sitemap.xml` URL in
+Google Search Console for the site's verified property. A robots.txt under `/Portfolio/` would not
+control crawling: robots.txt must live at the origin root, which is managed by the GitHub Pages user site.
+
 ## Deploy (GitHub Pages)
 
 `.github/workflows/deploy.yml` builds and publishes on every push to `main`.
