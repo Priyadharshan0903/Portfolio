@@ -1,71 +1,109 @@
-.h2 {
-  margin: 24px 0 56px;
-  max-width: 18ch;
-}
-.grid {
+.intro {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-}
-.cell {
-  background: var(--bg);
-}
-.card,
-.card:hover {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: end;
   gap: 48px;
-  min-height: 300px;
-  height: 100%;
-  box-sizing: border-box;
-  padding: 30px;
-  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, -30%), var(--glow), transparent 65%), var(--bg);
-  color: var(--fg);
+  margin-bottom: 80px;
 }
-.meta,
-.foot {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--mono);
-  font-size: 12px;
+.h2 { max-width: 12ch; }
+.intro p,
+.toolsIntro p {
+  margin: 0;
+  max-width: 46ch;
+  font-size: 18px;
+  line-height: 1.6;
 }
-.meta {
-  color: var(--dim);
+.showcase { display: grid; gap: 100px; }
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr);
+  align-items: start;
+  gap: clamp(28px, 5vw, 80px);
 }
-.foot {
-  color: var(--muted);
-}
-.name {
+.copy { position: sticky; top: 120px; padding-block: 12px; }
+.copy h3 {
   margin: 0;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 44px;
-  line-height: 1;
+  font-size: clamp(36px, 3.5vw, 52px);
+  line-height: 1.1;
 }
-.desc {
-  margin: 14px 0 0;
-  font-size: 16px;
-  line-height: 1.55;
-  color: var(--muted);
+.copy h3 a { color: var(--fg); }
+.copy h3 a:hover { color: var(--ink); }
+.copy p {
+  margin: 24px 0;
+  font-size: 17px;
+  line-height: 1.6;
   text-wrap: pretty;
 }
-.more {
-  display: flex;
-  align-items: flex-end;
-  padding: 30px;
-  min-height: 300px;
-  box-sizing: border-box;
+.platform { display: block; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.explore,
+.github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 44px;
+  font-size: 16px;
 }
-.more a {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 32px;
-  line-height: 1.1;
+.explore { margin-top: 24px; }
+.explore span,
+.github span { transition: transform 200ms var(--ease); }
+.explore:hover span,
+.github:hover span { transform: translate(3px, -3px); }
+.preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 2.2vw, 32px);
+  background: color-mix(in oklab, var(--fg) 7%, var(--bg));
+  overflow: hidden;
+  min-width: 0;
+}
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 500ms var(--ease);
+}
+.preview:hover .image,
+.preview:focus-visible .image { transform: scale(1.025); }
+.tools {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr);
+  gap: clamp(28px, 5vw, 80px);
+  margin-top: 120px;
+}
+.toolsIntro h3 { margin: 0 0 24px; font-family: var(--serif); font-weight: 400; font-size: 40px; }
+.toolsIntro p { font-size: 17px; }
+.toolList { display: grid; gap: 16px; }
+.tool {
+  display: grid;
+  padding: 28px 32px;
+  background: color-mix(in oklab, var(--fg) 5%, var(--bg));
   color: var(--fg);
 }
-.more a:hover {
-  color: var(--ink);
+.tool h4 { margin: 0; font-size: 24px; font-weight: 500; line-height: 1.2; }
+.tool p { margin: 14px 0 20px; font-size: 16px; line-height: 1.6; }
+.toolAction { display: flex; justify-content: space-between; gap: 16px; font-size: 14px; color: var(--ink); }
+.tool:hover .toolAction { color: var(--fg); }
+.github { margin-top: 48px; }
+@media (max-width: 760px) {
+  .intro,
+  .project,
+  .tools { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .intro { margin-bottom: 48px; }
+  .intro p { font-size: 17px; }
+  .showcase { gap: 64px; }
+  .copy { position: static; padding: 0; }
+  .copy p { margin: 16px 0; }
+  .explore { margin-top: 12px; }
+  .preview { padding: 14px; }
+  .tools { margin-top: 80px; }
+  .tool { padding: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .image,
+  .explore span,
+  .github span { transition: none; transform: none !important; }
 }
